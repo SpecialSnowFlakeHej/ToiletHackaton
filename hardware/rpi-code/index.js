@@ -23,18 +23,20 @@ client.on("message", (topic, message) => {
     if (didFound != null) arrayToBeSaved = didFound;
     else arrayToBeSaved._id = messageData[1];
 
+    arrayToBeSaved.type = "node";
+
     switch (messageData[2]) {
         case "thermometer":
             arrayToBeSaved.temperature = message;
             break;
         case "pir":
-            arrayToBeSaved.last_shit = message;
+            arrayToBeSaved.last_shit = new Date();
             break;
         default:
             arrayToBeSaved[messageData[2]] = message;
             break;
 
     }
-    axios.post(serverURL, arrayCarry).catch((error) => console.log(error));
+    axios.post(serverURL, arrayToBeSaved).catch((error) => console.log(error));
     if (didFound == null) arrayCarry.push(arrayToBeSaved);
 });
