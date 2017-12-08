@@ -13,8 +13,9 @@ export class MapComponent extends Component<MapProps, {}> {
     
 
     componentDidUpdate() {
-        const pos = [this.props.model.lat, this.props.model.long]
-        var mymap = L.map('map').setView(pos, 13);
+        const {model} = this.props;
+        const pos = [model.lat, model.long]
+        var mymap = L.map('map').setView(pos, 15);
         L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw', {
             maxZoom: 18,
             attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, ' +
@@ -23,7 +24,15 @@ export class MapComponent extends Component<MapProps, {}> {
             id: 'mapbox.streets'
         }).addTo(mymap);
         
-        var marker = L.marker(pos).addTo(mymap);
+        // device location
+        L.circle(pos, {
+            color: 'red',
+            fillColor: '#f03',
+            fillOpacity: 0.8,
+            radius: 30
+        }).addTo(mymap);
+
+        model.markers.forEach(m => L.marker([m.lat, m.long]).addTo(mymap));
     }
 
     render() {  
