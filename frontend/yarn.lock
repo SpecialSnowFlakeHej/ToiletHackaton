@@ -1535,7 +1535,13 @@ lcid@^1.0.0:
   dependencies:
     invert-kv "^1.0.0"
 
-leaflet@^1.2.0:
+leaflet-search@^2.3.7:
+  version "2.3.7"
+  resolved "https://registry.yarnpkg.com/leaflet-search/-/leaflet-search-2.3.7.tgz#5b9551504ea7b8a8a3c3992dd81bd2100445c0ad"
+  dependencies:
+    leaflet "*"
+
+leaflet@*, leaflet@^1.2.0:
   version "1.2.0"
   resolved "https://registry.yarnpkg.com/leaflet/-/leaflet-1.2.0.tgz#fd5d93d9cb00091f5f8a69206d0d6744c1c82697"
 
@@ -1731,6 +1737,10 @@ mobx-react@^4.1.8:
 mobx@^3.1.9:
   version "3.3.2"
   resolved "https://registry.yarnpkg.com/mobx/-/mobx-3.3.2.tgz#e912a9f7c82b2df69f1abe6515ecaa551828a024"
+
+moment@^2.19.3:
+  version "2.19.3"
+  resolved "https://registry.yarnpkg.com/moment/-/moment-2.19.3.tgz#bdb99d270d6d7fda78cc0fbace855e27fe7da69f"
 
 ms@2.0.0:
   version "2.0.0"
