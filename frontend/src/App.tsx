@@ -5,7 +5,7 @@ import { Model } from './Model';
 
 export class App extends Component<{},{}> {
     render(){
-        const model = new Model();
+        const model = new Model("https://toilethackaton.eu-gb.mybluemix.net/data");
         model.getLocation();
         return (
             <div id="container">
