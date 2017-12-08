@@ -24,6 +24,7 @@ client.on("message", (topic, message) => {
     else arrayToBeSaved._id = messageData[1];
 
     arrayToBeSaved.type = "node";
+    arrayToBeSaved.for = "brno";
 
     switch (messageData[2]) {
         case "thermometer":
