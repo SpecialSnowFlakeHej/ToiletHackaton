@@ -35,7 +35,7 @@ private markers: any = null;
             color: 'red',
             fillColor: '#f03',
             fillOpacity: 0.8,
-            radius: 3
+            radius: 5
         }));
 
         model.data? model.data.forEach(m => {
@@ -57,7 +57,7 @@ private markers: any = null;
                     onChange={(e) => model.onLocationChange(e)}
                     onKeyUp={(e => {e.keyCode === 13? model.onSubmitLocation() : null})} />
                 <input type="button" onClick={model.onSubmitLocation} value="Odeslat" />
-                <div id="map" style={{width: "70%", height: "95vh"}} > </div>
+                <div id="map" style={{width: "100%", height: "70vh"}} > </div>
             </div>
         );
     }

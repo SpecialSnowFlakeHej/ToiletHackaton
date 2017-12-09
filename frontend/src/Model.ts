@@ -15,13 +15,19 @@ export interface IData {
     price: number;
     position: IMarker;
     name: string;
-    toiletCount: number;
+    toilets: any[];
+}
+
+export interface IReview {
+    message: string;
+    stars: number;
 }
 
 export class Model {
     constructor(url: string) {
         fetch(url).then(response => { 
             response.json().then(data => {
+                console.log(data[2])
                     data.forEach(d => this.data.push({ 
                     id: d._id,
                     name: d.name,
@@ -29,7 +35,7 @@ export class Model {
                     lastCleaned: moment(d.last_clean),
                     lastUsed: d.last_shit,
                     position: {long: d.lon, lat: d.lat},
-                    toiletCount: d.rooms.lenght
+                    toilets: d.rooms
                 }))
             });
         });
@@ -69,8 +75,16 @@ export class Model {
     }
 
     @observable selectedWc: IData = null;
+    @observable selectedReview: IReview[] = [];
     @action.bound onSelectWC(wc: IData){
         this.selectedWc = wc;
+        this.selectedReview = [];
+        fetch(`https://toilethackaton.eu-gb.mybluemix.net/reviews?id=${wc.id}`).then(response => { 
+            response.json().then(data => {
+                console.log("response", data);
+                data.forEach(d => this.selectedReview.push({message: d.message, stars: d.stars}));
+            });
+        });
     }
 
     private rating = 0;
