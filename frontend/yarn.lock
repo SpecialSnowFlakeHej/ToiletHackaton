@@ -1458,6 +1458,16 @@ isstream@~0.1.2:
   version "0.1.2"
   resolved "https://registry.yarnpkg.com/isstream/-/isstream-0.1.2.tgz#47e63f7af55afa6f92e1500e690eb8b8529c099a"
 
+jquery-bar-rating@^1.2.2:
+  version "1.2.2"
+  resolved "https://registry.yarnpkg.com/jquery-bar-rating/-/jquery-bar-rating-1.2.2.tgz#9594d662cff9deb0fe7b372511bb2492a436f392"
+  dependencies:
+    jquery ">=1.7.2"
+
+jquery@>=1.7.2:
+  version "3.2.1"
+  resolved "https://registry.yarnpkg.com/jquery/-/jquery-3.2.1.tgz#5c4d9de652af6cd0a770154a631bba12b015c787"
+
 js-tokens@^3.0.0:
   version "3.0.2"
   resolved "https://registry.yarnpkg.com/js-tokens/-/js-tokens-3.0.2.tgz#9866df395102130e38f7f996bceb65443209c25b"
@@ -1535,13 +1545,7 @@ lcid@^1.0.0:
   dependencies:
     invert-kv "^1.0.0"
 
-leaflet-search@^2.3.7:
-  version "2.3.7"
-  resolved "https://registry.yarnpkg.com/leaflet-search/-/leaflet-search-2.3.7.tgz#5b9551504ea7b8a8a3c3992dd81bd2100445c0ad"
-  dependencies:
-    leaflet "*"
-
-leaflet@*, leaflet@^1.2.0:
+leaflet@^1.2.0:
   version "1.2.0"
   resolved "https://registry.yarnpkg.com/leaflet/-/leaflet-1.2.0.tgz#fd5d93d9cb00091f5f8a69206d0d6744c1c82697"
 
@@ -2193,6 +2197,10 @@ react-geolocated@^2.2.1:
   resolved "https://registry.yarnpkg.com/react-geolocated/-/react-geolocated-2.2.1.tgz#816b88d3d88afc5afde08e4d071b36cd16b4c34a"
   dependencies:
     prop-types "^15.5.8"
+
+react-rating@^0.9.0:
+  version "0.9.0"
+  resolved "https://registry.yarnpkg.com/react-rating/-/react-rating-0.9.0.tgz#ec309daf5c1cc02d34bfda2fdfa0119a789213f2"
 
 react@^16.2.0:
   version "16.2.0"
