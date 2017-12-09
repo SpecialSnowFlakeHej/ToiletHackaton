@@ -2,7 +2,7 @@ import * as React from "react";
 import { Component } from "react";
 import { observer } from "mobx-react";
 import { Model } from "./Model";
-import * as Rating from "react-rating"
+import * as Rating from "react-rating";
 
 export interface ReviewsProps {
     model: Model;

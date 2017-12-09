@@ -64,6 +64,7 @@ module.exports = {
         ]
     },    
     devServer: {
+        port: 4000,
         overlay: {
             warnings: true,
             errors: true
