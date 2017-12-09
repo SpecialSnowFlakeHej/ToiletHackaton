@@ -33,14 +33,13 @@ export class MapComponent extends Component<MapProps, {}> {
             color: 'red',
             fillColor: '#f03',
             fillOpacity: 0.8,
-            radius: 5
+            radius: 12
         }));
 
         model.data ? model.data.forEach(m => {
             this.markers.addLayer(L.marker([m.position.lat, m.position.long]).on("click", () => { model.onSelectWC(m) }).bindPopup(
                 `Jméno: ${m.name}</br>
-                Cena: ${m.price ? m.price : 0} Kč</br>
-                ${m.lastCleaned ? "Naposledy uklizeno: " + m.lastCleaned : ""}`));
+                Cena: ${m.price ? m.price : 0} Kč`));
         }) : null;
         console.log("data", model.data);
         this.map.addLayer(this.markers);

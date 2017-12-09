@@ -13,9 +13,14 @@ export class Reviews extends Component<ReviewsProps, {}> {
     render() {
         const {model} = this.props;
         if (!model.selectedWc) return <span style={{margin: 30}} >Zvolte toaletu pro více informací</span>
+        var approx = 0;
+        if(model.selectedReview.length > 0) {
+            model.selectedReview.forEach(r => approx += r.stars);
+            approx = (approx / model.selectedReview.length).toFixed(1) as any;
+        }
         return (
             <div style={{margin: 10}} >
-                <h2 style={{borderBottom: "1px solid grey"}} >Recenze</h2>
+                <h2 style={{borderBottom: "1px solid grey", margin: 10}} >Recenze</h2>
                 <div style={{display: "inline-block"}} >
                     <span style={{display: "block"}} >{"Jméno: " + model.selectedWc.name}</span>
                     <span style={{display: "block"}} >{"Cena: " + model.selectedWc.price}</span>
@@ -23,7 +28,7 @@ export class Reviews extends Component<ReviewsProps, {}> {
                     <span style={{display: "block"}} >{"Naposledy uklizeno: " + model.selectedWc.lastCleaned}</span>
                 </div>
                 <div style={{display: "inline-block", marginLeft: 30}} >
-                    <span style={{display: "block"}} >Hodnocení: </span>
+                    <h4 style={{display: "block", margin: 5}} >Ohodnotit: </h4>
                     <Rating  style={{display: "block"}} 
                         empty="fa fa-star-o fa-2x"
                         full="fa fa-star fa-2x"
@@ -37,10 +42,15 @@ export class Reviews extends Component<ReviewsProps, {}> {
                     <input type="button" onClick={e => {model.onSubmitReview()}} value="Odeslat" />
                 </div>
                 <div style={{display:"inline-block"}} >
+                    <div style={{marginLeft: 20}}>
+                        <h3 style={{marginTop:5}} >Průměr: {approx}/5 ★</h3>
+                    </div>
+                    <div>
                         {model.selectedReview.map((r, idx) => <div key={idx} style={{display: "inline-block", marginLeft: 20}} >
                             <span>{r.stars}/5 ★</span><br />
                             <span>{r.message}</span>
                         </div>)}
+                    </div>
                 </div>
             </div>
         );
