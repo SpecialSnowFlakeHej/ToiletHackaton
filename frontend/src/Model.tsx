@@ -1,7 +1,9 @@
 import { observable, action } from "mobx";
-import { geolocated, GeolocatedProps } from "react-geolocated";
-//import Axios from "axios";
 import * as moment from "moment";
+import * as ReactDOM from "react-dom";
+import { CommentComp } from "./Reviews";
+import * as React from "react";
+
 
 export interface IMarker {
     long: number;
@@ -104,6 +106,9 @@ export class Model {
         fetch('https://toilethackaton.eu-gb.mybluemix.net/reviews', {
             method: 'POST',
             body: JSON.stringify({id: this.selectedWc.id, stars: this.rating, message: this.review})
-          })
+          });
+        //   ReactDOM.findDOMNode(document.getElementById("comments")).
+        //    document.getElementById("comments"). (<CommentComp stars={this.rating} message={this.review} />);
+        
     }
 }

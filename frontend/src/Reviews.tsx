@@ -40,13 +40,13 @@ export class Reviews extends Component<ReviewsProps, {}> {
                     />
                     <input type="input" placeholder="Hodnocení" style={{width: "85%"}}
                         onChange={model.onReview} />
-                    <input type="button" onClick={e => {model.onSubmitReview()}} value="Odeslat" />
+                    <input type="button" onClick={e => {model.onSubmitReview(); location.reload() }} value="Odeslat" />
                 </div>
                 <div style={{display:"block"}} >
                     <div style={{marginLeft: 20}}>
                         <h3 style={{marginTop:5}} >Průměr: {approx}/5 ★</h3>
                     </div>
-                    <ul style={{}} >
+                    <ul id="comments" >
                         {model.selectedReview.map((r, idx) => <li key={idx} style={{display: "block", margin: 20}} >
                             <span style={{marginRight: 20}} >{r.stars}/5 ★</span>
                             <span>{r.message}</span>
@@ -55,5 +55,15 @@ export class Reviews extends Component<ReviewsProps, {}> {
                 </div>
             </div>
         );
+    }
+}
+
+
+export class CommentComp extends Component<any, {}> {
+    render(){
+        return (<li style={{display: "block", margin: 20}} >
+        <span style={{marginRight: 20}} >{this.props.stars}/5 ★</span>
+        <span>{this.props.message}</span>
+    </li>);
     }
 }

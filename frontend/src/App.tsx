@@ -1,8 +1,8 @@
 import * as React from 'react';
 import { Component } from 'react';
 import { MapComponent } from "./Map";
-import { Model } from './Model';
 import { Reviews } from './Reviews';
+import { Model } from './Model';
 
 export class App extends Component<{},{}> {
     render(){
