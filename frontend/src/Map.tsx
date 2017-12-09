@@ -39,12 +39,12 @@ private markers: any = null;
         }));
 
         model.data? model.data.forEach(m => {
-            this.markers.addLayer(L.marker([m.position.lat, m.position.long]).bindPopup(
+            this.markers.addLayer(L.marker([m.position.lat, m.position.long]).on("click", () => {model.onSelectWC(m)}).bindPopup(
                 `Jméno: ${m.name}</br>
                 Cena: ${m.price? m.price : 0} Kč</br>
                 ${m.lastCleaned? "Naposledy uklizeno: " + m.lastCleaned : ""}`));
         }) : null;
-
+        console.log("data", model.data);
         this.map.addLayer(this.markers);
     }
 
@@ -57,7 +57,7 @@ private markers: any = null;
                     onChange={(e) => model.onLocationChange(e)}
                     onKeyUp={(e => {e.keyCode === 13? model.onSubmitLocation() : null})} />
                 <input type="button" onClick={model.onSubmitLocation} value="Odeslat" />
-                <div id="map" style={{width: "100%", height: "90vh"}} > </div>
+                <div id="map" style={{width: "70%", height: "95vh"}} > </div>
             </div>
         );
     }
