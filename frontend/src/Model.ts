@@ -16,6 +16,7 @@ export interface IData {
     position: IMarker;
     name: string;
     toilets: any[];
+    others?: string;
 }
 
 export interface IReview {
@@ -27,15 +28,15 @@ export class Model {
     constructor(url: string) {
         fetch(url).then(response => { 
             response.json().then(data => {
-                console.log(data[2])
                     data.forEach(d => this.data.push({ 
                     id: d._id,
                     name: d.name,
                     price: d.price,
-                    lastCleaned: moment(d.last_clean),
+                    lastCleaned: d.last_clean? (moment(d.last_clean)).format('DD.MM.YYYY HH:mm:ss'): "Není známo",
                     lastUsed: d.last_shit,
                     position: {long: d.lon, lat: d.lat},
-                    toilets: d.rooms
+                    toilets: d.rooms,
+                    others: "Bezbariérový přístup"
                 }))
             });
         });
